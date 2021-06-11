@@ -1,1 +1,1 @@
-export default class userService {}
+export default class UserService {}

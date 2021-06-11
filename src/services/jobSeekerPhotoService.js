@@ -1,1 +1,1 @@
-export default class jobSeekerPhotoService {}
+export default class JobSeekerPhotoService {}

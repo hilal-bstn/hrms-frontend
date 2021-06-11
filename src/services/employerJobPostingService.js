@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default class employerJobPostingService {
+export default class EmployerJobPostingService {
   getJobPostings() {
     return axios.get(
       "http://localhost:8080/api/employerjobpostings/getbyisactive"

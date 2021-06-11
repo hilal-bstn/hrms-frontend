@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default class jobSeekerCoverLetterService {
+export default class JobSeekerCoverLetterService {
   addjobSeekerCoverLetter(jobSeekerCoverLetter) {
     axios.post(
       "http://localhost:8080/api/jobseekercoverletters/add",

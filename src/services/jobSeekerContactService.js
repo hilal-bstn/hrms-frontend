@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default class jobSeekerContactService {
+export default class JobSeekerContactService {
   addJobSeekerContact(jobSeekerContact) {
     axios.post(
       "http://localhost:8080/api/jobseekercontact/add",

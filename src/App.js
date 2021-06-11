@@ -6,6 +6,10 @@ import { Container } from "semantic-ui-react";
 import EmployerList from './pages/EmployerList';
 import JobSeekerList from './pages/JobSeekerList';
 import EmployerJobPostingAddForm from './pages/EmployerJobPostingAddForm';
+import EmployerJobPostingList from './pages/EmployerJobPostingList';
+import EmployerJobPostingDetail from './pages/EmployerJobPostingDetail';
+import JobSeekerContactAddForm from './pages/JobSeekerContactAddForm';
+import JobSeekerCoverLetterAddForm from './pages/JobSeekerCoverLetterAddForm';
 
 
 function App() {
@@ -13,7 +17,7 @@ function App() {
     <div className="App">
       <Navi/>
       <Container className="main">
-       <EmployerJobPostingAddForm></EmployerJobPostingAddForm>
+<JobSeekerCoverLetterAddForm></JobSeekerCoverLetterAddForm>
       </Container>
     </div>
   );

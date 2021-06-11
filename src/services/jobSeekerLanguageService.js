@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default class jobSeekerLanguageService {
+export default class JobSeekerLanguageService {
   addJobSeekerLanguage(jobSeekerLanguage) {
     axios.post(
       "http://localhost:8080/api/jobseekerlanguages/add",

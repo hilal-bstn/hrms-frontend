@@ -4,7 +4,7 @@ import { Container, Button, Icon, Menu } from "semantic-ui-react";
 export default function Navi() {
   return (
     <div>
-      <Menu style={{ borderStyle: "none" }}>
+      <Menu  style={{ borderStyle: "none" ,marginBottom:"30px"}}>
         <Container>
           <img src="logo.png" />
 
