@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function JobSeekerContactDetail() {
+export default function JobSeekerLanguageDetail() {
     return (
         <div>
             

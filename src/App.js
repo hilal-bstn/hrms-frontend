@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <Navi/>
       <Container className="main">
-<JobSeekerCoverLetterAddForm></JobSeekerCoverLetterAddForm>
+<Dashboard></Dashboard>
       </Container>
     </div>
   );
