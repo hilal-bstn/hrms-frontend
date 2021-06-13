@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Header, Image, Table } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+
+import { Header, Image, Table,Icon } from "semantic-ui-react";
 import EmployerJobPostingService from "../services/employerJobPostingService";
 
 export default function EmployerJobPostingList() {
@@ -7,9 +9,7 @@ export default function EmployerJobPostingList() {
 
   useEffect(() => {
     let employerJobPostingService = new EmployerJobPostingService();
-    employerJobPostingService.getJobPostings().then(result=>setEmployerJobPostings(result.data.data))
-  
-  })
+    employerJobPostingService.getJobPostings().then(result=>setEmployerJobPostings(result.data.data))},[])
 
   return (
     <div>
@@ -29,12 +29,8 @@ export default function EmployerJobPostingList() {
             <Table.Row key={jobPosting.id}>
               <Table.Cell>
                 <Header as="h4" image>
-                  <Image
-                    src="https://react.semantic-ui.com/images/avatar/small/lena.png"
-                    rounded
-                    size="mini"
-                  />
-                  <Header.Content>{jobPosting.employer.company.companyName}</Header.Content>
+                  <Icon name="suitcase"/>
+                  <Header.Content><Link to={`/jobposting/${jobPosting.id}`}>{jobPosting.employer.company.companyName}</Link></Header.Content>
                 </Header>
               </Table.Cell>
               <Table.Cell>{jobPosting.jobPosition.title}</Table.Cell>

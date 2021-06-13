@@ -9,7 +9,7 @@ export default class JobSeekerUniversityService {
   }
   getJobSeekerUniversity(id) {
     return axios.get(
-      "http://localhost:8080/api/jobseekeruniversities/getbyjobseekerid?id"+id
+      "http://localhost:8080/api/jobseekeruniversities/getgraduationyeardesc?id="+id
     );
   }
 }

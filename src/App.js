@@ -10,6 +10,7 @@ import EmployerJobPostingList from './pages/EmployerJobPostingList';
 import EmployerJobPostingDetail from './pages/EmployerJobPostingDetail';
 import JobSeekerContactAddForm from './pages/JobSeekerContactAddForm';
 import JobSeekerCoverLetterAddForm from './pages/JobSeekerCoverLetterAddForm';
+import JobSeekerContactDetail from './pages/JobSeekerContactDetail';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
     <div className="App">
       <Navi/>
       <Container className="main">
-<Dashboard></Dashboard>
+      <Dashboard></Dashboard>
       </Container>
     </div>
   );

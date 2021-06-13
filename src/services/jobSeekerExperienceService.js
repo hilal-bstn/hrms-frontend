@@ -7,9 +7,10 @@ export default class JobSeekerExperienceService {
       jobSeekerExperience
     );
   }
-  getJobSeekerExperience(id) {
+  getTerminationYearAsc(id) {
     return axios.get(
-      "http://localhost:8080/api/jobseekerexperiences/getbyjobseekerid?id="+id
+      "http://localhost:8080/api/jobseekerexperiences/getterminationyearasc?id="+id
     );
   }
+  
 }

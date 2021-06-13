@@ -1,19 +1,31 @@
-import React from 'react'
-import { Container, Button, Icon,Menu } from "semantic-ui-react";
+import React from "react";
+import { Route } from "react-router";
+import { Container, Button, Icon, Menu } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
+import EmployerJobPostingDetail from "../pages/EmployerJobPostingDetail";
+import EmployerJobPostingList from "../pages/EmployerJobPostingList";
+import JobSeekerContactDetail from "../pages/JobSeekerContactDetail";
+import JobSeekerExperienceDetail from "../pages/JobSeekerExperienceDetail";
+import JobSeekerLanguageDetail from "../pages/JobSeekerLanguageDetail";
+import JobSeekerTechnologyDetail from "../pages/JobSeekerTechnologyDetail";
+import JobSeekerUniversityDetail from "../pages/JobSeekerUniversityDetail";
+import JobSeekerCV from "./JobSeekerCV";
+import Main from "./Main";
+
 
 export default function Dashboard() {
-    return (
-        <div>
-            <img src="sayfa2.png" style={{margin: "5px" ,float: "left" , zIndex:"-1"}}/>
-            <Button
-              basic
-              color="black"
-              position="right"
-              style={{margin: "155px",float: "left",fontWeight:"bold",fontSize:"150%"}}
-            >
-                İş İlanlarını İncele
-                <Icon name='angle double right' />
-            </Button>
-        </div>
-    )
+  return (
+    <div>
+      <Grid>
+        <Grid.Row>
+          <Grid.Column width={16}>
+            <Route exact path="/" component={Main} />
+            <Route path="/jobpostings" component={EmployerJobPostingList} />
+            <Route path="/jobposting/:id" component={EmployerJobPostingDetail} />
+            <Route path="/jobSeekerCV/:id" component={JobSeekerCV} />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </div>
+  );
 }

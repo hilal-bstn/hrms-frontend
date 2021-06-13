@@ -15,4 +15,8 @@ export default class EmployerJobPostingService {
   deleteEmployerJobPosting(id) {
     axios.post("http://localhost:8080/api/employerjobpostings/delete", id);
   }
+  getById(id){
+    return axios.get("http://localhost:8080/api/employerjobpostings/getById?id="+id)
+
+}
 }
