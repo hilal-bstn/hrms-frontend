@@ -39,7 +39,7 @@ export default function JobSeekerExperienceDetail() {
               <Table.Cell>{jobSeekerExperience.jobPosition.title}</Table.Cell>
               <Table.Cell>{jobSeekerExperience.employmentStartYear}</Table.Cell>
               <Table.Cell>
-                {jobSeekerExperience.terminationYear == 0
+                {jobSeekerExperience.terminationYear === 0
                   ? "Devam Ediyor"
                   : jobSeekerExperience.terminationYear}
               </Table.Cell>

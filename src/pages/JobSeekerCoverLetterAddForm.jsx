@@ -5,9 +5,12 @@ export default function JobSeekerCoverLetterAddForm() {
   return (
     <div>
       <Form>
-        <TextArea placeholder="Çalışmayı çok severim.." style={{ minHeight: 100 }} />
-        <br/>
-            <br/>
+        <TextArea
+          placeholder="Çalışmayı çok severim.."
+          style={{ minHeight: 100 }}
+        />
+        <br />
+        <br />
         <div>
           <Button basic color="black">
             Kaydet

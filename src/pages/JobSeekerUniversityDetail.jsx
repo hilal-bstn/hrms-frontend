@@ -4,7 +4,7 @@ import { Header, Icon, Table, Image } from "semantic-ui-react";
 import JobSeekerUniversityService from "../services/jobSeekerUniversityService";
 
 export default function JobSeekerUniversityDetail() {
-    let { id } = useParams();
+  let { id } = useParams();
 
   const [jobSeekerUniversities, setJobSeekerUniversities] = useState([]);
 
@@ -14,9 +14,9 @@ export default function JobSeekerUniversityDetail() {
       .getJobSeekerUniversity(id)
       .then((result) => setJobSeekerUniversities(result.data.data));
   }, []);
-    return (
-        <div>
-            <Table celled collapsing style={{ borderStyle: "none" }}>
+  return (
+    <div>
+      <Table celled collapsing style={{ borderStyle: "none" }}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Üniversite</Table.HeaderCell>
@@ -36,10 +36,12 @@ export default function JobSeekerUniversityDetail() {
                   </Header.Content>
                 </Header>
               </Table.Cell>
-              <Table.Cell>{jobSeekerUniversity.universityDepartment.name}</Table.Cell>
+              <Table.Cell>
+                {jobSeekerUniversity.universityDepartment.name}
+              </Table.Cell>
               <Table.Cell>{jobSeekerUniversity.entranceYear}</Table.Cell>
               <Table.Cell>
-                {jobSeekerUniversity.graduationYear == 0
+                {jobSeekerUniversity.graduationYear === 0
                   ? "Devam Ediyor"
                   : jobSeekerUniversity.graduationYear}
               </Table.Cell>
@@ -47,6 +49,6 @@ export default function JobSeekerUniversityDetail() {
           ))}
         </Table.Body>
       </Table>
-        </div>
-    )
+    </div>
+  );
 }

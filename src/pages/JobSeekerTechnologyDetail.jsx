@@ -4,21 +4,22 @@ import { Header, Icon, Table, Rating } from "semantic-ui-react";
 import JobSeekerTechnologyService from "../services/jobSeekerTechnologyService";
 
 export default function JobSeekerTechnologyDetail() {
-    let { id } = useParams();
+  let { id } = useParams();
 
-    const [jobSeekerTechnologies, setJobSeekerTechnologies] = useState([]);
-  
-    useEffect(()=>{
-      let jobSeekerTechnologyService = new JobSeekerTechnologyService()
-      jobSeekerTechnologyService.getJobSeekerTechnology(id).then(result=>setJobSeekerTechnologies(result.data.data))
-    },[])
-    return (
-        <div>
-             <Table celled collapsing style={{ borderStyle: "none" }}>
+  const [jobSeekerTechnologies, setJobSeekerTechnologies] = useState([]);
+
+  useEffect(() => {
+    let jobSeekerTechnologyService = new JobSeekerTechnologyService();
+    jobSeekerTechnologyService
+      .getJobSeekerTechnology(id)
+      .then((result) => setJobSeekerTechnologies(result.data.data));
+  }, []);
+  return (
+    <div>
+      <Table celled collapsing style={{ borderStyle: "none" }}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Yetenekler</Table.HeaderCell>
-            
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -35,6 +36,6 @@ export default function JobSeekerTechnologyDetail() {
           ))}
         </Table.Body>
       </Table>
-        </div>
-    )
+    </div>
+  );
 }

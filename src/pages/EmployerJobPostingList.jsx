@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { Header, Image, Table,Icon } from "semantic-ui-react";
+import { Header, Image, Table, Icon } from "semantic-ui-react";
 import EmployerJobPostingService from "../services/employerJobPostingService";
 
 export default function EmployerJobPostingList() {
@@ -9,7 +9,10 @@ export default function EmployerJobPostingList() {
 
   useEffect(() => {
     let employerJobPostingService = new EmployerJobPostingService();
-    employerJobPostingService.getJobPostings().then(result=>setEmployerJobPostings(result.data.data))},[])
+    employerJobPostingService
+      .getJobPostings()
+      .then((result) => setEmployerJobPostings(result.data.data));
+  }, []);
 
   return (
     <div>
@@ -29,13 +32,19 @@ export default function EmployerJobPostingList() {
             <Table.Row key={jobPosting.id}>
               <Table.Cell>
                 <Header as="h4" image>
-                  <Icon name="suitcase"/>
-                  <Header.Content><Link to={`/jobposting/${jobPosting.id}`}>{jobPosting.employer.company.companyName}</Link></Header.Content>
+                  <Icon name="suitcase" />
+                  <Header.Content>
+                    <Link to={`/jobposting/${jobPosting.id}`}>
+                      {jobPosting.employer.company.companyName}
+                    </Link>
+                  </Header.Content>
                 </Header>
               </Table.Cell>
               <Table.Cell>{jobPosting.jobPosition.title}</Table.Cell>
               <Table.Cell>{jobPosting.city.name}</Table.Cell>
-              <Table.Cell>{jobPosting.minSalary} - {jobPosting.maxSalary}</Table.Cell>
+              <Table.Cell>
+                {jobPosting.minSalary} - {jobPosting.maxSalary}
+              </Table.Cell>
               <Table.Cell>{jobPosting.applicationDeadline}</Table.Cell>
             </Table.Row>
           ))}
