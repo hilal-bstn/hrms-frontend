@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Navi />
       <Container className="main">
-          <EmployerJobPostingAddForm></EmployerJobPostingAddForm>
+          <Dashboard></Dashboard>
       </Container>
     </div>
   );

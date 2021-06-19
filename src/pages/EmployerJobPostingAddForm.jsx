@@ -15,7 +15,7 @@ import {
   Grid,
 } from "semantic-ui-react";
 
-export default function JobAdvertRegister() {
+export default function EmployerJobPostingAddForm() {
   let employerJobPostingService = new EmployerJobPostingService();
 
   const [cities, setCities] = useState([]);
