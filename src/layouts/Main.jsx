@@ -1,11 +1,13 @@
 import React from 'react'
-import { Container, Button, Icon,Menu } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import {Button, Icon } from "semantic-ui-react";
 
 
 export default function Main() {
     return (
         <div>
             <img src="sayfa2.png" style={{margin: "5px" ,float: "left" , zIndex:"-1"}}/>
+            <Link to="/jobpostings">
             <Button
               basic
               color="black"
@@ -15,6 +17,7 @@ export default function Main() {
                 İş İlanlarını İncele
                 <Icon name='angle double right' />
             </Button>
+            </Link>
         </div>
     )
 }
