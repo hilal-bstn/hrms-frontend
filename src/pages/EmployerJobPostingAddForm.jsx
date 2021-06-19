@@ -136,7 +136,7 @@ export default function EmployerJobPostingAddForm() {
               handleChangeSemantic(data.value, "jobPositionId")
             }
             onBlur={formik.onBlur}
-            id="jobId"
+            id="jobPositionId"
             value={formik.values.jobPositionId}
             options={jobPositionOption}
           />

@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import JobSeekerCoverLetterService from "../services/jobSeekerCoverLetterService";
+import { Icon, TextArea ,Button} from "semantic-ui-react";
 
 export default function JobSeekerCoverLetterAddForm() {
   let jobSeekerCoverLetterService = new JobSeekerCoverLetterService();
@@ -13,7 +14,7 @@ export default function JobSeekerCoverLetterAddForm() {
       jobSeekerCoverLetterService.addjobSeekerCoverLetter(values);
     },
   });
-  const selectandtext = {
+  const textarea = {
     width: "30%",
     padding: "5px 10px",
     margin: "8px 0",
@@ -30,20 +31,26 @@ export default function JobSeekerCoverLetterAddForm() {
   };
   return (
     <div>
+      <Icon name="write" circular />
+
+      <label style={label}>
+        <b>Önyazı : </b>
+      </label>
+
       <form onSubmit={formik.handleSubmit}>
-        <label style={label}>Önyazı :  </label>
-        <input
-          id="coverletter"
-          name="coverletter"
-          type="text"
-          rows="5"
-          cols="30"
-          style={selectandtext}
-          onChange={formik.handleChange}
+        <TextArea
+          id="coverLetter"
+          name="coverLetter"
+          type="textarea"
+          rows="7"
+          cols="100"
+          placeholder="Çalışmayı çok severim..."
           value={formik.values.coverLetter}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         />
-        <br/>
-        <button type="submit">Kaydet</button>
+        <br />
+        <Button primary type="submit">Kaydet</Button>
       </form>
     </div>
   );
