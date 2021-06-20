@@ -54,7 +54,7 @@ export default function EmployerJobPostingAddForm() {
     },
 
     onSubmit: (values) => {
-      values.employer = { id: 1 };
+      values.employer = { id: 2 };
       values.city = { id: values.cityId };
       values.jobPosition = { id: values.jobPositionId };
       values.typeOfWork = { id: values.typeOfWorkId };

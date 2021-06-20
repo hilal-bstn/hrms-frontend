@@ -1,15 +1,28 @@
 import React, { useState, useEffect } from "react";
 import JobPostingConfirmationService from "../services/jobPostingConfirmationService";
 import { Button, Icon, Label, Menu, Table } from "semantic-ui-react";
+import EmployerJobPostingService from "../services/employerJobPostingService";
+import { useFormik } from "formik";
 
 export default function HrmsConfirmationJobPostingList() {
   const [JobPostingConfirmations, setJobPostingConfirmations] = useState([]);
   let jobPostingConfirmationService = new JobPostingConfirmationService();
-
+  let employerJobPostingService=new EmployerJobPostingService();
   useEffect(() => {
     jobPostingConfirmationService
       .getByHrmsEmployeeConfirmation()
       .then((result) => setJobPostingConfirmations(result.data.data));
+  });
+  const formik = useFormik({
+    initialValues: {
+      employerJobPostingId:"",
+      jobPostingConfirmationId:""
+    },
+
+    onSubmit: (values) => {
+      jobPostingConfirmationService.add(values.jobPostingConfirmationId);
+      employerJobPostingService.isActive(values.employerJobPostingId);
+    },
   });
   return (
     <div>
@@ -27,16 +40,16 @@ export default function HrmsConfirmationJobPostingList() {
         </Table.Header>
 
         <Table.Body>
-          {JobPostingConfirmations.map((jobPostingConfirmation) => (
+          {JobPostingConfirmations.map((jobPostingConfirmation) => (//profil ekle (işveren)
             <Table.Row key={jobPostingConfirmation.id}>
-              <Table.Cell>{jobPostingConfirmation.city.name}</Table.Cell>
+              <Table.Cell>{jobPostingConfirmation.employerJobPosting.city.name}</Table.Cell> 
               <Table.Cell>
                 {
                   jobPostingConfirmation.employerJobPosting.employer.company
                     .companyName
                 }
               </Table.Cell>
-              <Table.Cell>{jobPostingConfirmation.jobPosition.name}</Table.Cell>
+              <Table.Cell>{jobPostingConfirmation.employerJobPosting.jobPosition.title}</Table.Cell>
               <Table.Cell>
                 {jobPostingConfirmation.employerJobPosting.openPositionCount}
               </Table.Cell>
