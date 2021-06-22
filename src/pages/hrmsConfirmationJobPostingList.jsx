@@ -6,26 +6,21 @@ import { useFormik } from "formik";
 
 export default function HrmsConfirmationJobPostingList() {
   const [JobPostingConfirmations, setJobPostingConfirmations] = useState([]);
+
   let jobPostingConfirmationService = new JobPostingConfirmationService();
-  let employerJobPostingService=new EmployerJobPostingService();
+  let employerJobPostingService = new EmployerJobPostingService();
   useEffect(() => {
     jobPostingConfirmationService
       .getByHrmsEmployeeConfirmation()
       .then((result) => setJobPostingConfirmations(result.data.data));
   });
-  const formik = useFormik({
-    initialValues: {
-      employerJobPostingId:"",
-      jobPostingConfirmationId:""
-    },
-
-    onSubmit: (values) => {
-      jobPostingConfirmationService.add(values.jobPostingConfirmationId);
-      employerJobPostingService.isActive(values.employerJobPostingId);
-    },
-  });
+  const hrmsConfirmation = (jobPostingConfirmationId, jobPostingId) => {
+    jobPostingConfirmationService.add(jobPostingConfirmationId);
+    employerJobPostingService.isActive(jobPostingId);
+  };
   return (
     <div>
+      <b>Onay bekleyen iş ilanları</b>
       <Table celled>
         <Table.Header>
           <Table.Row>
@@ -40,39 +35,56 @@ export default function HrmsConfirmationJobPostingList() {
         </Table.Header>
 
         <Table.Body>
-          {JobPostingConfirmations.map((jobPostingConfirmation) => (//profil ekle (işveren)
-            <Table.Row key={jobPostingConfirmation.id}>
-              <Table.Cell>{jobPostingConfirmation.employerJobPosting.city.name}</Table.Cell> 
-              <Table.Cell>
-                {
-                  jobPostingConfirmation.employerJobPosting.employer.company
-                    .companyName
-                }
-              </Table.Cell>
-              <Table.Cell>{jobPostingConfirmation.employerJobPosting.jobPosition.title}</Table.Cell>
-              <Table.Cell>
-                {jobPostingConfirmation.employerJobPosting.openPositionCount}
-              </Table.Cell>
-              <Table.Cell>
-                {jobPostingConfirmation.employerJobPosting.minSalary === 0
-                  ? "Belirtilmemiş"
-                  : jobPostingConfirmation.employerJobPosting.minSalary}
-                -{" "}
-                {jobPostingConfirmation.employerJobPosting.maxSalary === 0
-                  ? "Belirtilmemiş"
-                  : jobPostingConfirmation.employerJobPosting.maxSalary}
-              </Table.Cell>
-              <Table.Cell>
-                {jobPostingConfirmation.employerJobPosting.jobDescription}
-              </Table.Cell>
+          {JobPostingConfirmations.map(
+            (
+              jobPostingConfirmation //profil ekle (işveren)
+            ) => (
+              <Table.Row key={jobPostingConfirmation.id}>
+                <Table.Cell>
+                  {jobPostingConfirmation.employerJobPosting.city.name}
+                </Table.Cell>
+                <Table.Cell>
+                  {
+                    jobPostingConfirmation.employerJobPosting.employer.company
+                      .companyName
+                  }
+                </Table.Cell>
+                <Table.Cell>
+                  {jobPostingConfirmation.employerJobPosting.jobPosition.title}
+                </Table.Cell>
+                <Table.Cell>
+                  {jobPostingConfirmation.employerJobPosting.openPositionCount}
+                </Table.Cell>
+                <Table.Cell>
+                  {jobPostingConfirmation.employerJobPosting.minSalary === 0
+                    ? "Belirtilmemiş"
+                    : jobPostingConfirmation.employerJobPosting.minSalary}
+                  -
+                  {jobPostingConfirmation.employerJobPosting.maxSalary === 0
+                    ? "Belirtilmemiş"
+                    : jobPostingConfirmation.employerJobPosting.maxSalary}
+                </Table.Cell>
+                <Table.Cell>
+                  {jobPostingConfirmation.employerJobPosting.jobDescription}
+                </Table.Cell>
 
-              <Table.Cell>
-                <Button primary type="submit">
-                  Onay Ver
-                </Button>
-              </Table.Cell>
-            </Table.Row>
-          ))}
+                <Table.Cell>
+                  <Button
+                    primary
+                    type="submit"
+                    onClick={(c) =>
+                      hrmsConfirmation(
+                        jobPostingConfirmation.id,
+                        jobPostingConfirmation.employerJobPosting.id
+                      )
+                    }
+                  >
+                    Onay Ver
+                  </Button>
+                </Table.Cell>
+              </Table.Row>
+            )
+          )}
         </Table.Body>
       </Table>
     </div>

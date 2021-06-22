@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from "react-router";
 import { Grid } from "semantic-ui-react";
+import EmployerIdActiveJobPostingList from "../pages/EmployerIdActiveJobPostingList";
 import EmployerJobPostingAddForm from "../pages/EmployerJobPostingAddForm";
 import EmployerJobPostingDetail from "../pages/EmployerJobPostingDetail";
 import EmployerJobPostingList from "../pages/EmployerJobPostingList";
@@ -11,6 +12,8 @@ import JobSeekerCoverLetterAddForm from "../pages/JobSeekerCoverLetterAddForm";
 import JobSeekerExperiencesAddForm from "../pages/JobSeekerExperiencesAddForm";
 import JobSeekerLanguageAddForm from "../pages/JobSeekerLanguageAddForm";
 import JobSeekerList from "../pages/JobSeekerList";
+import JobSeekerTechnologyAddForm from "../pages/JobSeekerTechnologyAddForm";
+import login from "../pages/login";
 import JobSeekerCV from "./JobSeekerCV";
 import Main from "./Main";
 
@@ -33,6 +36,8 @@ export default function Dashboard() {
             <Route path="/jobseekerlanguageaddform" component={JobSeekerLanguageAddForm} />
             <Route path="/jobseekerexperienceaddform" component={JobSeekerExperiencesAddForm} />
             <Route path="/hrmsconfirmationjobpostinglist" component={HrmsConfirmationJobPostingList} />
+            <Route path="/login" component={login} />
+            <Route path="/employeridactivejobpostinglist/:id" component={EmployerIdActiveJobPostingList} />
 
           </Grid.Column>
         </Grid.Row>

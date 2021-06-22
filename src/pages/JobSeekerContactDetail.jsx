@@ -18,7 +18,7 @@ export default function JobSeekerContactDetail() {
     <div>
       <Table celled collapsing style={{ borderStyle: "none" }}>
         <Table.Body>
-          <Table.Row>
+          <Table.Row key={jobSeekerContact.id}>
             <Table.Cell>
               <Header as="h4" image>
                 <Icon name="github" circular />
@@ -27,7 +27,7 @@ export default function JobSeekerContactDetail() {
             </Table.Cell>
             <Table.Cell>{jobSeekerContact.github}</Table.Cell>
           </Table.Row>
-          <Table.Row>
+          <Table.Row >
             <Table.Cell>
               <Header as="h4" image>
                 <Icon name="linkedin" circular />

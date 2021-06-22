@@ -5,7 +5,7 @@ export default class JobPostingConfirmationService {
       return axios.get("http://localhost:8080/api/jobpostingconfirmations/getByHrmsEmployeeConfirmation");
     }
     add(id) {
-      axios.post("http://localhost:8080/api/jobpostingconfirmations/add", id);//onay verildi.
+      axios.post("http://localhost:8080/api/jobpostingconfirmations/hrmsConfirmation?id="+id);//onay verildi.
     }
   }
   

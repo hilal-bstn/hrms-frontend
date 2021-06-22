@@ -10,7 +10,7 @@ export default function JobSeekerCoverLetterAddForm() {
       coverLetter: "",
     },
     onSubmit: (values) => {
-      values.jobSeeker = { id: 3 };
+      values.jobSeeker = { id: 15 };
       jobSeekerCoverLetterService.addjobSeekerCoverLetter(values);
     },
   });

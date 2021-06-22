@@ -27,8 +27,8 @@ export default function JobSeekerUniversityDetail() {
         </Table.Header>
         <Table.Body>
           {jobSeekerUniversities.map((jobSeekerUniversity) => (
-            <Table.Row>
-              <Table.Cell>
+            <Table.Row key={jobSeekerUniversity.id}>
+              <Table.Cell >
                 <Header as="h4" image>
                   <Icon name="university" circular />
                   <Header.Content>

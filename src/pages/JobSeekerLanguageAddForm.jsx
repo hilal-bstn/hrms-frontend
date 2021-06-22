@@ -8,12 +8,13 @@ export default function JobSeekerLanguageAddForm() {
     const formik = useFormik({
       initialValues: {
         name: "",
-        level:""
+        languageLevel:""
       },
       onSubmit: (values) => {
-        values.jobSeeker = { id: 3 };
-        values.language={name:values.name}
-        JobSeekerLanguageService.addJobSeekerLanguage(values)
+        values.jobSeeker = { id: 15};
+        values.language={ name:values.name}
+        console.log(values)
+        jobSeekerLanguageService.addJobSeekerLanguage(values)
       },
     });
     const text = {
@@ -48,15 +49,15 @@ export default function JobSeekerLanguageAddForm() {
         <Icon name="level up" circular />
         <label style={label}><b>Seviye (1-5) :  </b></label>
         <input
-          id="level"
-          name="level"
+          id="languageLevel"
+          name="languageLevel"
           type="text"
           style={text}
           onChange={formik.handleChange}
-          value={formik.values.level}
+          value={formik.values.languageLevel}
         />
         <br/>
-        <Button type="submit">Kaydet</Button>
+        <Button primary type="submit">Kaydet</Button>
       </form>
         </div>
     )

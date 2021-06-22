@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Checkbox, Form } from "semantic-ui-react";
+import { Button, Checkbox, Form,Icon } from "semantic-ui-react";
 
 export default function login() {
   return (
@@ -7,17 +7,16 @@ export default function login() {
       <div>
         <Form>
           <Form.Field>
-            <label>First Name</label>
-            <input placeholder="First Name" />
+           <label> <Icon name="user"/>Email</label>
+            
+            <input placeholder="example@gmail.com" />
           </Form.Field>
           <Form.Field>
-            <label>Last Name</label>
-            <input placeholder="Last Name" />
+            <label> <Icon name="keyboard"/>Şifre</label>
+            <input type="password" placeholder="password" />
           </Form.Field>
-          <Form.Field>
-            <Checkbox label="I agree to the Terms and Conditions" />
-          </Form.Field>
-          <Button type="submit">Submit</Button>
+          
+          <Button primary type="submit">Giriş Yap</Button>
         </Form>
       </div>
     </div>

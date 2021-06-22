@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Button, Icon, Menu } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 export default function Navi() {
   return (
@@ -17,7 +18,7 @@ export default function Navi() {
             >
               Kayıt ol
             </Button>
-
+            <Link to={`/login`}>
             <Button
               basic
               color="black"
@@ -27,6 +28,7 @@ export default function Navi() {
               <Icon name="sign in" />
               Giriş Yap
             </Button>
+            </Link>
           </Menu.Menu>
         </Container>
       </Menu>

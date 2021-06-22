@@ -100,7 +100,7 @@ export default function EmployerJobPostingAddForm() {
     marginBottom: "50px",
     marginLeft:"15px"
   };
-  return (
+  return (//işverenin iş ilanı ekleyebilmesi
     <div>
       <Form onSubmit={formik.handleSubmit}>
         <Form.Field>

@@ -28,7 +28,7 @@ export default function JobSeekerExperiencesAddForm() {
       terminationYear:""
     },
     onSubmit: (values) => {
-      values.jobSeeker = { id: 3 };
+      values.jobSeeker = { id: 15 };
       values.jobPosition={id:values.jobPositionId};
       jobSeekerExperienceService.addJobSeekerExperience(values);
     },

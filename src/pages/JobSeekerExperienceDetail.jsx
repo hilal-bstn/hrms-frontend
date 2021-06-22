@@ -27,7 +27,7 @@ export default function JobSeekerExperienceDetail() {
         </Table.Header>
         <Table.Body>
           {jobSeekerExperiences.map((jobSeekerExperience) => (
-            <Table.Row>
+            <Table.Row key={jobSeekerExperience.id}>
               <Table.Cell>
                 <Header as="h4" image>
                   <Icon name="suitcase" circular />

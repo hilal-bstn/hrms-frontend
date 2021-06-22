@@ -25,7 +25,7 @@ export default function JobSeekerLanguageDetail() {
         </Table.Header>
         <Table.Body>
           {jobSeekerLanguages.map((jobSeekerLanguage) => (
-            <Table.Row>
+            <Table.Row key={jobSeekerLanguage.id}>
               <Table.Cell>
                 <Header as="h4" image>
                   <Icon name="language" circular />

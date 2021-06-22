@@ -24,7 +24,7 @@ export default function JobSeekerTechnologyDetail() {
         </Table.Header>
         <Table.Body>
           {jobSeekerTechnologies.map((jobSeekerTechnology) => (
-            <Table.Row>
+            <Table.Row key={jobSeekerTechnology.id}>
               <Table.Cell>
                 <Header as="h4" image>
                   <Header.Content>
