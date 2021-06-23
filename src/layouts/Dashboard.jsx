@@ -6,7 +6,7 @@ import EmployerJobPostingAddForm from "../pages/EmployerJobPostingAddForm";
 import EmployerJobPostingDetail from "../pages/EmployerJobPostingDetail";
 import EmployerJobPostingList from "../pages/EmployerJobPostingList";
 import EmployerList from "../pages/EmployerList";
-import HrmsConfirmationJobPostingList from "../pages/hrmsConfirmationJobPostingList";
+import HrmsConfirmationJobPostingList from "../pages/HrmsConfirmationJobPostingList";
 import JobSeekerContactAddForm from "../pages/JobSeekerContactAddForm";
 import JobSeekerCoverLetterAddForm from "../pages/JobSeekerCoverLetterAddForm";
 import JobSeekerExperiencesAddForm from "../pages/JobSeekerExperiencesAddForm";

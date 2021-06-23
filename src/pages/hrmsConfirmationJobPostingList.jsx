@@ -16,7 +16,7 @@ export default function HrmsConfirmationJobPostingList() {
   });
   const hrmsConfirmation = (jobPostingConfirmationId, jobPostingId) => {
     jobPostingConfirmationService.add(jobPostingConfirmationId);
-    employerJobPostingService.isActive(jobPostingId);
+    employerJobPostingService.release(jobPostingId);
   };
   return (
     <div>

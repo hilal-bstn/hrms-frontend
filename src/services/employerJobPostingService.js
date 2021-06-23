@@ -19,8 +19,8 @@ export default class EmployerJobPostingService {
     return axios.get("http://localhost:8080/api/employerjobpostings/getById?id="+id)
 
 }
-isActive(id) {//yayınlandı.
-  axios.post("http://localhost:8080/api/employerjobpostings/isActive?id="+id);
+release(id) {//yayınlandı.
+  axios.post("http://localhost:8080/api/employerjobpostings/release?id="+id);
 }
 getByEmployerIdAndIsActive(id){
   return axios.get("http://localhost:8080/api/employerjobpostings/getByEmployerIdAndIsActive?employerId="+id)
