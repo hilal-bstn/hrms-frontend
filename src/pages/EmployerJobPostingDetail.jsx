@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Header, Icon, Table, Button } from "semantic-ui-react";
 import EmployerJobPostingService from "../services/employerJobPostingService";
+import FavoriteJobPostingOfJobSeekerService from "../services/favoriteJobPostingOfJobSeekerService";
 
 export default function EmployerJobPostingDetail() {
   let { id } = useParams();
-
+  let favoriteJobPostingOfJobSeekerService =
+    new FavoriteJobPostingOfJobSeekerService();
   const [employerJobPosting, setEmployerJobPosting] = useState({});
 
   useEffect(() => {
@@ -14,6 +16,13 @@ export default function EmployerJobPostingDetail() {
       .getById(id)
       .then((result) => setEmployerJobPosting(result.data.data));
   }, []);
+  const addFavorite = () => {
+    let values = {};
+    values.jobSeeker = { id: "15" };
+    values.employerJobPosting = { id: id };
+    favoriteJobPostingOfJobSeekerService.add(values);
+  };
+
   return (
     <div>
       <Header as="h2" icon textAlign="center">
@@ -22,6 +31,7 @@ export default function EmployerJobPostingDetail() {
           {employerJobPosting.employer?.company.companyName}
         </Header.Content>
       </Header>
+      <Button onClick={(c) => addFavorite()}>İlanı Favorilerime ekle</Button>
       <Table celled padded>
         <Table.Header>
           <Table.Row>

@@ -4,14 +4,18 @@ import { Grid, Header, Image } from "semantic-ui-react";
 import JobSeekerContactDetail from "../pages/JobSeekerContactDetail";
 import JobSeekerExperienceDetail from "../pages/JobSeekerExperienceDetail";
 import JobSeekerLanguageDetail from "../pages/JobSeekerLanguageDetail";
+import JobSeekerPhotoDetail from "../pages/JobSeekerPhotoDetail";
 import JobSeekerTechnologyDetail from "../pages/JobSeekerTechnologyDetail";
 import JobSeekerUniversityDetail from "../pages/JobSeekerUniversityDetail";
 export default function JobSeekerCV() {
   return (
     <div>
-      <Header as="h2" textAlign="center">
-        <Image src="/logo.png" size="medium" circular />
-      </Header>
+      <Route
+            path="/jobseekercv/:id"
+            component={
+              JobSeekerPhotoDetail
+            }
+          />
       <Grid>
         <Grid.Row style={{ marginBottom: "20px" }}>
           <Route

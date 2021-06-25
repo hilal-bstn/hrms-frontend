@@ -6,12 +6,15 @@ import EmployerJobPostingAddForm from "../pages/EmployerJobPostingAddForm";
 import EmployerJobPostingDetail from "../pages/EmployerJobPostingDetail";
 import EmployerJobPostingList from "../pages/EmployerJobPostingList";
 import EmployerList from "../pages/EmployerList";
+import FavoriteJobPostingsOfJobSeekerList from "../pages/FavoriteJobPostingsOfJobSeekerList";
 import HrmsConfirmationJobPostingList from "../pages/HrmsConfirmationJobPostingList";
+import JobApplication from "../pages/JobApplication";
 import JobSeekerContactAddForm from "../pages/JobSeekerContactAddForm";
 import JobSeekerCoverLetterAddForm from "../pages/JobSeekerCoverLetterAddForm";
 import JobSeekerExperiencesAddForm from "../pages/JobSeekerExperiencesAddForm";
 import JobSeekerLanguageAddForm from "../pages/JobSeekerLanguageAddForm";
 import JobSeekerList from "../pages/JobSeekerList";
+import JobSeekerPhotoAddForm from "../pages/JobSeekerPhotoAddForm";
 import JobSeekerTechnologyAddForm from "../pages/JobSeekerTechnologyAddForm";
 import login from "../pages/login";
 import JobSeekerCV from "./JobSeekerCV";
@@ -38,6 +41,9 @@ export default function Dashboard() {
             <Route path="/hrmsconfirmationjobpostinglist" component={HrmsConfirmationJobPostingList} />
             <Route path="/login" component={login} />
             <Route path="/employeridactivejobpostinglist/:id" component={EmployerIdActiveJobPostingList} />
+            <Route path="/jobseekerphotoaddform" component={JobSeekerPhotoAddForm} />
+            <Route path="/jobapplication/:id" component={JobApplication} />
+            <Route path="/favoritejobpostingofjobseeker" component={FavoriteJobPostingsOfJobSeekerList} />
 
           </Grid.Column>
         </Grid.Row>
