@@ -7,7 +7,7 @@ export default function Navi() {
     <div>
       <Menu  style={{ borderStyle: "none" ,marginBottom:"30px"}}>
         <Container>
-          <img src="logo.png" />
+          <img src="../logo.png" />
 
           <Menu.Menu position="right">
             <Button

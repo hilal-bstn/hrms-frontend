@@ -16,9 +16,14 @@ export default function JobSeekerPhotoDetail() {
   }, []);
   return (
     <div>
-      <Header textAlign="center" key={jobSeekerPhoto.id}>
+      <Header textAlign="center" >
         <Image
-          src={jobSeekerPhoto.imageUrl}
+          src={
+            jobSeekerPhoto === null
+              ? "../default.png"
+              : jobSeekerPhoto.imageUrl
+          }
+          circular
           style={{ width: "100px", height: "120px" }}
         />
       </Header>

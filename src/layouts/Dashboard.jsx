@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from "react-router";
 import { Grid } from "semantic-ui-react";
+import EmployerDetail from "../pages/EmployerDetail";
 import EmployerIdActiveJobPostingList from "../pages/EmployerIdActiveJobPostingList";
 import EmployerJobPostingAddForm from "../pages/EmployerJobPostingAddForm";
 import EmployerJobPostingDetail from "../pages/EmployerJobPostingDetail";
@@ -10,12 +11,14 @@ import FavoriteJobPostingsOfJobSeekerList from "../pages/FavoriteJobPostingsOfJo
 import HrmsConfirmationJobPostingList from "../pages/HrmsConfirmationJobPostingList";
 import JobApplication from "../pages/JobApplication";
 import JobSeekerContactAddForm from "../pages/JobSeekerContactAddForm";
+import JobSeekerContactUpdateForm from "../pages/JobSeekerContactUpdateForm";
 import JobSeekerCoverLetterAddForm from "../pages/JobSeekerCoverLetterAddForm";
 import JobSeekerExperiencesAddForm from "../pages/JobSeekerExperiencesAddForm";
 import JobSeekerLanguageAddForm from "../pages/JobSeekerLanguageAddForm";
 import JobSeekerList from "../pages/JobSeekerList";
 import JobSeekerPhotoAddForm from "../pages/JobSeekerPhotoAddForm";
 import JobSeekerTechnologyAddForm from "../pages/JobSeekerTechnologyAddForm";
+import JobSeekerUniversityAddForm from "../pages/JobSeekerUniversityAddForm";
 import login from "../pages/login";
 import JobSeekerCV from "./JobSeekerCV";
 import Main from "./Main";
@@ -44,6 +47,10 @@ export default function Dashboard() {
             <Route path="/jobseekerphotoaddform" component={JobSeekerPhotoAddForm} />
             <Route path="/jobapplication/:id" component={JobApplication} />
             <Route path="/favoritejobpostingofjobseeker" component={FavoriteJobPostingsOfJobSeekerList} />
+            <Route path="/employerdetail/:id" component={EmployerDetail} />
+            <Route path="/jobseekertechnologyaddfom" component={JobSeekerTechnologyAddForm} />
+            <Route path="/jobseekeruniversityaddfom" component={JobSeekerUniversityAddForm} />
+            <Route path="/jobseekercontactupdateform/:id" component={JobSeekerContactUpdateForm} />
 
           </Grid.Column>
         </Grid.Row>
