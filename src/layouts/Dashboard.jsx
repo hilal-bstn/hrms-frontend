@@ -13,6 +13,7 @@ import JobApplication from "../pages/JobApplication";
 import JobSeekerContactAddForm from "../pages/JobSeekerContactAddForm";
 import JobSeekerContactUpdateForm from "../pages/JobSeekerContactUpdateForm";
 import JobSeekerCoverLetterAddForm from "../pages/JobSeekerCoverLetterAddForm";
+import JobSeekerCoverLetterUpdateForm from "../pages/JobSeekerCoverLetterUpdateForm";
 import JobSeekerExperiencesAddForm from "../pages/JobSeekerExperiencesAddForm";
 import JobSeekerLanguageAddForm from "../pages/JobSeekerLanguageAddForm";
 import JobSeekerList from "../pages/JobSeekerList";
@@ -51,6 +52,7 @@ export default function Dashboard() {
             <Route path="/jobseekertechnologyaddfom" component={JobSeekerTechnologyAddForm} />
             <Route path="/jobseekeruniversityaddfom" component={JobSeekerUniversityAddForm} />
             <Route path="/jobseekercontactupdateform/:id" component={JobSeekerContactUpdateForm} />
+            <Route path="/jobseekercoverletterupdateform/:id" component={JobSeekerCoverLetterUpdateForm} />
 
           </Grid.Column>
         </Grid.Row>

@@ -9,8 +9,20 @@ export default class JobSeekerCoverLetterService {
   }
   getJobSeekerCoverLetter(id) {
     return axios.get(
-      "http://localhost:8080/api/jobseekercoverletters/getbyjobseekerid?id"+
+      "http://localhost:8080/api/jobseekercoverletters/getbyjobseekerid?id="+
       id
+    );
+  }
+  getByJobSeekerCoverLetterId(id) {
+    return axios.get(
+      "http://localhost:8080/api/jobseekercoverletters/getbyid?id="+
+      id
+    );
+  }
+  updateJobSeekerCeverLetter(jobSeekerContact) {
+    axios.post(
+      "http://localhost:8080/api/jobseekercoverletters/update",
+      jobSeekerContact
     );
   }
 }
