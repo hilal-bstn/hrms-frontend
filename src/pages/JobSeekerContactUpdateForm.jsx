@@ -26,7 +26,7 @@ export default function JobSeekerContactUpdateForm() {
      values.jobSeeker = { id: id };
      values.id=jobSeekerContact.id;
      console.log(values);
-    // jobSeekerContactService.updateJobSeekerContact(values);
+     jobSeekerContactService.updateJobSeekerContact(values);
     },
   });
     const text = {

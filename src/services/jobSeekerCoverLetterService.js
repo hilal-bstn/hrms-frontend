@@ -19,7 +19,7 @@ export default class JobSeekerCoverLetterService {
       id
     );
   }
-  updateJobSeekerCeverLetter(jobSeekerContact) {
+  updateJobSeekerCoverLetter(jobSeekerContact) {
     axios.post(
       "http://localhost:8080/api/jobseekercoverletters/update",
       jobSeekerContact

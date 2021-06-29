@@ -21,7 +21,7 @@ export default function JobSeekerCoverLetterUpdateForm() {
       values.jobSeeker = { id: jobSeekerCoverLetter.jobSeeker.id };
       values.id = jobSeekerCoverLetter.id;
       console.log(values);
-      jobSeekerCoverLetterService.updateJobSeekerCeverLetter(values);
+      jobSeekerCoverLetterService.updateJobSeekerCoverLetter(values);
     },
   });
   const text = {

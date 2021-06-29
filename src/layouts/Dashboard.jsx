@@ -15,10 +15,13 @@ import JobSeekerContactUpdateForm from "../pages/JobSeekerContactUpdateForm";
 import JobSeekerCoverLetterAddForm from "../pages/JobSeekerCoverLetterAddForm";
 import JobSeekerCoverLetterUpdateForm from "../pages/JobSeekerCoverLetterUpdateForm";
 import JobSeekerExperiencesAddForm from "../pages/JobSeekerExperiencesAddForm";
+import JobSeekerExperienceUpdateForm from "../pages/JobSeekerExperienceUpdateForm";
 import JobSeekerLanguageAddForm from "../pages/JobSeekerLanguageAddForm";
+import JobSeekerLanguageUpdateForm from "../pages/JobSeekerLanguageUpdateForm";
 import JobSeekerList from "../pages/JobSeekerList";
 import JobSeekerPhotoAddForm from "../pages/JobSeekerPhotoAddForm";
 import JobSeekerTechnologyAddForm from "../pages/JobSeekerTechnologyAddForm";
+import JobSeekerUniversitiyUpdateForm from "../pages/JobSeekerUniversitiyUpdateForm";
 import JobSeekerUniversityAddForm from "../pages/JobSeekerUniversityAddForm";
 import login from "../pages/login";
 import JobSeekerCV from "./JobSeekerCV";
@@ -53,6 +56,9 @@ export default function Dashboard() {
             <Route path="/jobseekeruniversityaddfom" component={JobSeekerUniversityAddForm} />
             <Route path="/jobseekercontactupdateform/:id" component={JobSeekerContactUpdateForm} />
             <Route path="/jobseekercoverletterupdateform/:id" component={JobSeekerCoverLetterUpdateForm} />
+            <Route path="/jobseekerexperienceupdateform/:id" component={JobSeekerExperienceUpdateForm} />
+            <Route path="/jobseekerlanguageupdateform/:id" component={JobSeekerLanguageUpdateForm} />
+            <Route path="/jobseekeruniversityupdateform/:id" component={JobSeekerUniversitiyUpdateForm} />
 
           </Grid.Column>
         </Grid.Row>
