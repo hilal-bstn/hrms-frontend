@@ -90,7 +90,7 @@ export default function EmployerJobPostingAddForm() {
   };
   const dropdown = {
     width: "100%",
-    padding: "10px 300px",
+    padding: "10px 25px",
     margin: "0px 0",
     display: "inline",
     border: "1px solid #ccc",
@@ -102,7 +102,7 @@ export default function EmployerJobPostingAddForm() {
   };
   return (//işverenin iş ilanı ekleyebilmesi
     <div>
-      <Form onSubmit={formik.handleSubmit}>
+      <Form onSubmit={formik.handleSubmit} >
         <Form.Field>
           <b>  Şehir : </b>
           <Dropdown

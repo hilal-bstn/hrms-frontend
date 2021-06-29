@@ -9,8 +9,8 @@ export default function JobSeekerExperienceUpdateForm() {
     let { id } = useParams();
     let jobSeekerExperienceService = new JobSeekerExperienceService();
     const [jobSeekerExperience, setJobSeekerExperience] = useState({});
-  const [jobPositions, setJobPositions] = useState([]);
-  const jobPositionOption = jobPositions.map((jobPosition, index) => ({
+    const [jobPositions, setJobPositions] = useState([]);
+    const jobPositionOption = jobPositions.map((jobPosition, index) => ({
     key: index,
     text: jobPosition.title,
     value: jobPosition.id,

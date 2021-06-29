@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function JobSeekerPhotoUpdateForm() {
+export default function EmployerUpdateForm() {
     return (
         <div>
             

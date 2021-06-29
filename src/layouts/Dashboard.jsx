@@ -9,6 +9,7 @@ import EmployerJobPostingList from "../pages/EmployerJobPostingList";
 import EmployerList from "../pages/EmployerList";
 import FavoriteJobPostingsOfJobSeekerList from "../pages/FavoriteJobPostingsOfJobSeekerList";
 import HrmsConfirmationJobPostingList from "../pages/HrmsConfirmationJobPostingList";
+import HrmsEmployeeUpdateForm from "../pages/HrmsEmployeeUpdateForm";
 import JobApplication from "../pages/JobApplication";
 import JobSeekerContactAddForm from "../pages/JobSeekerContactAddForm";
 import JobSeekerContactUpdateForm from "../pages/JobSeekerContactUpdateForm";
@@ -59,6 +60,7 @@ export default function Dashboard() {
             <Route path="/jobseekerexperienceupdateform/:id" component={JobSeekerExperienceUpdateForm} />
             <Route path="/jobseekerlanguageupdateform/:id" component={JobSeekerLanguageUpdateForm} />
             <Route path="/jobseekeruniversityupdateform/:id" component={JobSeekerUniversitiyUpdateForm} />
+            <Route path="/hrmsemployeeupdateform/:id" component={HrmsEmployeeUpdateForm} />
 
           </Grid.Column>
         </Grid.Row>

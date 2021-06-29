@@ -9,11 +9,9 @@ export default function JobSeekerContactUpdateForm() {
     const [jobSeekerContact, setJobSeekerContact] = useState({});
     let jobSeekerContactService = new JobSeekerContactService();
     useEffect(() => {
-     
       jobSeekerContactService
         .getJobSeekerContact(id)
         .then((result) => setJobSeekerContact(result.data.data));
-      
     }
    , []);
   const formik = useFormik({
