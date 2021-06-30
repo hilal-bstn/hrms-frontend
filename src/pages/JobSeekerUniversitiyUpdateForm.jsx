@@ -7,7 +7,7 @@ import UniversityDepartmentService from "../services/universityDepartmentService
 import UniversityService from "../services/universityService";
 
 export default function JobSeekerUniversitiyUpdateForm() {
-    let { id } = useParams();
+  let { id } = useParams();
   let jobSeekerUniversityService = new JobSeekerUniversityService();
   const [jobSeekerUniversity, setJobSeekerUniversity] = useState([]);
   const [universities, setUniversities] = useState([]);
@@ -39,7 +39,7 @@ export default function JobSeekerUniversitiyUpdateForm() {
       values.universityDepartment = { id: values.universityDepartmentId };
       values.id = jobSeekerUniversity.id;
       console.log(values);
-     jobSeekerUniversityService.updateJobSeekerUniversity(values);
+      jobSeekerUniversityService.updateJobSeekerUniversity(values);
     },
   });
   const universityOption = universities.map((university, index) => ({

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import JobPostingConfirmationService from "../services/jobPostingConfirmationService";
-import { Button, Icon, Label, Menu, Table } from "semantic-ui-react";
+import { Button, Table } from "semantic-ui-react";
 import EmployerJobPostingService from "../services/employerJobPostingService";
-import { useFormik } from "formik";
 
 export default function HrmsConfirmationJobPostingList() {
   const [JobPostingConfirmations, setJobPostingConfirmations] = useState([]);

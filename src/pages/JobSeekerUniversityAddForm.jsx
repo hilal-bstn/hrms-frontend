@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
-import { Button, Icon,Dropdown } from 'semantic-ui-react'
+import { Button, Icon, Dropdown } from "semantic-ui-react";
 import UniversityService from "../services/universityService";
-import JobSeekerUniversityService from '../services/jobSeekerUniversityService';
-import UniversityDepartmentService from '../services/universityDepartmentService';
+import JobSeekerUniversityService from "../services/jobSeekerUniversityService";
+import UniversityDepartmentService from "../services/universityDepartmentService";
 
 export default function JobSeekerUniversityAddForm() {
   let jobSeekerUniversityService = new JobSeekerUniversityService();
@@ -15,7 +15,7 @@ export default function JobSeekerUniversityAddForm() {
     universityService
       .getAll()
       .then((result) => setUniversities(result.data.data));
-      universityDepartmentService
+    universityDepartmentService
       .getAll()
       .then((result) => setUniversityDepartments(result.data.data));
   }, []);
@@ -23,16 +23,16 @@ export default function JobSeekerUniversityAddForm() {
   const formik = useFormik({
     initialValues: {
       universityId: "",
-      universityDepartmentId:"",
-      entranceYear:"",
-      graduationYear:""
+      universityDepartmentId: "",
+      entranceYear: "",
+      graduationYear: "",
     },
     onSubmit: (values) => {
       values.jobSeeker = { id: 15 };
       values.university = { id: values.universityId };
       values.universityDepartment = { id: values.universityDepartmentId };
       console.log(values);
-      jobSeekerUniversityService.addJobSeekerUniversity(values)
+      jobSeekerUniversityService.addJobSeekerUniversity(values);
     },
   });
   const universityOption = universities.map((university, index) => ({
@@ -40,11 +40,13 @@ export default function JobSeekerUniversityAddForm() {
     text: university.name,
     value: university.id,
   }));
-  const universityDepartmentOption = universityDepartments.map((universityDepartment, index) => ({
-    key: index,
-    text: universityDepartment.name,
-    value: universityDepartment.id,
-  }))
+  const universityDepartmentOption = universityDepartments.map(
+    (universityDepartment, index) => ({
+      key: index,
+      text: universityDepartment.name,
+      value: universityDepartment.id,
+    })
+  );
   const handleChangeSemantic = (value, fieldName) => {
     formik.setFieldValue(fieldName, value);
   };
@@ -100,7 +102,9 @@ export default function JobSeekerUniversityAddForm() {
         <br />
         <br />
         <Icon name="book" circular />
-        <label style={label}><b>Bölüm :  </b></label>
+        <label style={label}>
+          <b>Bölüm : </b>
+        </label>
         <Dropdown
           clearable
           item
@@ -116,9 +120,11 @@ export default function JobSeekerUniversityAddForm() {
           value={formik.values.universityDepartmentId}
           options={universityDepartmentOption}
         />
-        <br/>
-        <br/>
-        <label style={label}><b>Başlangıç yılı :  </b></label>
+        <br />
+        <br />
+        <label style={label}>
+          <b>Başlangıç yılı : </b>
+        </label>
         <input
           id="entranceYear"
           name="entranceYear"
@@ -127,10 +133,12 @@ export default function JobSeekerUniversityAddForm() {
           onChange={formik.handleChange}
           value={formik.values.entranceYear}
         />
-        <br/>
-        <br/>
+        <br />
+        <br />
         <Icon name="graduation cap" circular />
-        <label style={label}><b>Bitiş yılı(Devam ediyorsanız boş bırakınız.) :  </b></label>
+        <label style={label}>
+          <b>Bitiş yılı(Devam ediyorsanız boş bırakınız.) : </b>
+        </label>
         <input
           id="graduationYear"
           name="graduationYear"
@@ -139,7 +147,7 @@ export default function JobSeekerUniversityAddForm() {
           onChange={formik.handleChange}
           value={formik.values.graduationYear}
         />
-        <br/>
+        <br />
         <Button primary type="submit">
           Kaydet
         </Button>
