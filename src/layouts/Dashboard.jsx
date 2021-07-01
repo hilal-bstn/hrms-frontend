@@ -1,35 +1,36 @@
 import React from "react";
 import { Route } from "react-router";
 import { Grid } from "semantic-ui-react";
-import EmployerDetail from "../pages/EmployerDetail";
-import EmployerIdActiveJobPostingList from "../pages/EmployerIdActiveJobPostingList";
-import EmployerJobPostingAddForm from "../pages/EmployerJobPostingAddForm";
-import EmployerJobPostingDetail from "../pages/EmployerJobPostingDetail";
-import EmployerJobPostingList from "../pages/EmployerJobPostingList";
-import EmployerList from "../pages/EmployerList";
-import EmployerUpdateConfirmationDetail from "../pages/EmployerUpdateConfirmationDetail";
-import EmployerUpdateConfirmationList from "../pages/EmployerUpdateConfirmationList";
-import FavoriteJobPostingsOfJobSeekerList from "../pages/FavoriteJobPostingsOfJobSeekerList";
-import HrmsConfirmationJobPostingList from "../pages/HrmsConfirmationJobPostingList";
-import HrmsEmployeeUpdateForm from "../pages/HrmsEmployeeUpdateForm";
-import JobApplication from "../pages/JobApplication";
-import JobSeekerContactAddForm from "../pages/JobSeekerContactAddForm";
-import JobSeekerContactUpdateForm from "../pages/JobSeekerContactUpdateForm";
-import JobSeekerCoverLetterAddForm from "../pages/JobSeekerCoverLetterAddForm";
-import JobSeekerCoverLetterUpdateForm from "../pages/JobSeekerCoverLetterUpdateForm";
-import JobSeekerExperiencesAddForm from "../pages/JobSeekerExperiencesAddForm";
-import JobSeekerExperienceUpdateForm from "../pages/JobSeekerExperienceUpdateForm";
-import JobSeekerLanguageAddForm from "../pages/JobSeekerLanguageAddForm";
-import JobSeekerLanguageUpdateForm from "../pages/JobSeekerLanguageUpdateForm";
-import JobSeekerList from "../pages/JobSeekerList";
-import JobSeekerPhotoAddForm from "../pages/JobSeekerPhotoAddForm";
-import JobSeekerTechnologyAddForm from "../pages/JobSeekerTechnologyAddForm";
-import JobSeekerUniversitiyUpdateForm from "../pages/JobSeekerUniversitiyUpdateForm";
-import JobSeekerUniversityAddForm from "../pages/JobSeekerUniversityAddForm";
-import login from "../pages/login";
-import JobSeekerCV from "./JobSeekerCV";
-import Main from "./Main";
-
+import EmployerDetail from "../pages/Employer/EmployerDetail/EmployerDetail";
+import EmployerList from "../pages/Employer/EmployerList/EmployerList";
+import HrmsEmployeeUpdateForm from "../pages/Hrms/HrmsForms/HrmsEmployeeUpdateForm";
+import HrmsConfirmationJobPostingList from "../pages/Hrms/Confirmations/HrmsConfirmationJobPostingList";
+import EmployerUpdateConfirmationList from "../pages/Hrms/Confirmations/EmployerUpdateConfirmationList";
+import EmployerUpdateConfirmationDetail from "../pages/Hrms/Confirmations/EmployerUpdateConfirmationDetail";
+import EmployerIdActiveJobPostingList from "../pages/JobPosting/JobPostingList/EmployerIdActiveJobPostingList";
+import JobSeekerList from "../pages/JobSeeker/JobSeekerList/JobSeekerList";
+import EmployerJobPostingList from "../pages/JobPosting/JobPostingList/EmployerJobPostingList";
+import EmployerJobPostingDetail from "../pages/JobPosting/JobPostingDetail/EmployerJobPostingDetail";
+import Main from "../layouts/Main";
+import JobSeekerCV from "../layouts/JobSeekerCV";
+import EmployerJobPostingAddForm from "../pages/JobPosting/JobPostingForms/EmployerJobPostingAddForm";
+import JobSeekerContactAddForm  from"../pages/JobSeeker/JobSeekerForms/JobSeekerContactAddForm";
+import JobSeekerCoverLetterAddForm  from"../pages/JobSeeker/JobSeekerForms/JobSeekerCoverLetterAddForm";
+import JobSeekerLanguageAddForm  from"../pages/JobSeeker/JobSeekerForms/JobSeekerLanguageAddForm";
+import JobSeekerExperiencesAddForm  from"../pages/JobSeeker/JobSeekerForms/JobSeekerExperiencesAddForm";
+import JobSeekerPhotoAddForm  from"../pages/JobSeeker/JobSeekerForms/JobSeekerPhotoAddForm";
+import FavoriteJobPostingsOfJobSeekerList from "../pages/JobPosting/JobPostingList/FavoriteJobPostingsOfJobSeekerList";
+import JobSeekerTechnologyAddForm  from"../pages/JobSeeker/JobSeekerForms/JobSeekerTechnologyAddForm";
+import JobSeekerUniversityAddForm  from"../pages/JobSeeker/JobSeekerForms/JobSeekerUniversityAddForm";
+import JobSeekerContactUpdateForm  from"../pages/JobSeeker/JobSeekerForms/JobSeekerContactUpdateForm";
+import JobSeekerCoverLetterUpdateForm  from"../pages/JobSeeker/JobSeekerForms/JobSeekerCoverLetterUpdateForm";
+import JobSeekerExperienceUpdateForm  from"../pages/JobSeeker/JobSeekerForms/JobSeekerExperienceUpdateForm";
+import JobSeekerLanguageUpdateForm  from"../pages/JobSeeker/JobSeekerForms/JobSeekerLanguageUpdateForm";
+import JobSeekerUniversitiyUpdateForm  from"../pages/JobSeeker/JobSeekerForms/JobSeekerUniversitiyUpdateForm";
+import login  from"../pages/login";
+import JobApplication  from"../pages/JobApplication";
+import EmployerUpdateForm from "../pages/Employer/EmployerForms/EmployerUpdateForm";
+import JobPostingFilter from "../pages/JobPosting/JobPostingFilter/JobPostingFilter";
 
 export default function Dashboard() {
   return (
@@ -65,6 +66,9 @@ export default function Dashboard() {
             <Route path="/hrmsemployeeupdateform/:id" component={HrmsEmployeeUpdateForm} />
             <Route path="/employerupdateconfirmationlist" component={EmployerUpdateConfirmationList} />
             <Route path="/employerupdateconfirmationdetail/:id" component={EmployerUpdateConfirmationDetail} />
+            <Route path="/employerupdateform/:id" component={EmployerUpdateForm} />
+            <Route path="/jobpostingfilter" component={JobPostingFilter} />
+            <Route path="/employerJobPostingList/:cityId/:jobPositionId/:timeOfWorkId/:typeOfWorkId" component={EmployerJobPostingList} />
 
           </Grid.Column>
         </Grid.Row>

@@ -26,5 +26,7 @@ getByEmployerIdAndIsActive(id){
   return axios.get("http://localhost:8080/api/employerjobpostings/getByEmployerIdAndIsActive?employerId="+id)
 
 }
-
+getByFilter(cityId,jobPositionId,typeOfWorkId,timeOfWorkId){
+  return axios.get("http://localhost:8080/api/employerjobpostings/getbyfilter?cityId="+cityId+"&jobPositionId="+jobPositionId+"&typeOfWorkId="+typeOfWorkId+"&timeOfWorkId="+timeOfWorkId)
+}
 }
