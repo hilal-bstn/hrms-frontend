@@ -4,16 +4,20 @@ import { Header, Image, Table, Icon } from "semantic-ui-react";
 import EmployerJobPostingService from "../../../services/employerJobPostingService";
 
 export default function EmployerJobPostingList() {
+  //!?
   let { cityId,jobPositionId,timeOfWorkId,typeOfWorkId } = useParams();
   const [employerJobPostings, setEmployerJobPostings] = useState([]);
 
   useEffect(() => {
     let employerJobPostingService = new EmployerJobPostingService();
-    if (cityId,jobPositionId,timeOfWorkId,typeOfWorkId)
+    if(cityId==="0"){cityId=""}
+    if(jobPositionId==="0"){jobPositionId=""}
+    if(timeOfWorkId==="0"){timeOfWorkId=""}
+    if(typeOfWorkId==="0"){typeOfWorkId=""}
+    if (cityId||jobPositionId||timeOfWorkId||typeOfWorkId)
     {
-      employerJobPostingService.getByFilter(cityId,jobPositionId,timeOfWorkId,typeOfWorkId)
+      employerJobPostingService.getByFilter(cityId,jobPositionId,typeOfWorkId,timeOfWorkId)
       .then((result) => setEmployerJobPostings(result.data.data));
-      console.log(cityId,jobPositionId,typeOfWorkId,timeOfWorkId)
     }
     else{
       employerJobPostingService

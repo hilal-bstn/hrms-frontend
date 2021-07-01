@@ -35,10 +35,10 @@ export default function JobPostingFilter() {
 
   const formik = useFormik({
     initialValues: {
-      cityId: "",
-      typeOfWorkId: "",
-      timeOfWorkId: "",
-      jobPositionId: "",
+      cityId: "0",
+      typeOfWorkId: "0",
+      timeOfWorkId: "0",
+      jobPositionId: "0",
     },
 
     onSubmit: (values) => {
