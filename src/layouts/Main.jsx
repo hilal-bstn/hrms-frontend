@@ -7,7 +7,7 @@ export default function Main() {
     return (
         <div>
             <img src="sayfa2.png" style={{margin: "5px" ,float: "left" , zIndex:"-1"}}/>
-            <Link to="/jobpostings">
+            <Link to="/employerJobPostingList">
             <Button
               basic
               color="black"

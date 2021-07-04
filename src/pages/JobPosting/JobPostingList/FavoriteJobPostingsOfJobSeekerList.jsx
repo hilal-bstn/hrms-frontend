@@ -14,9 +14,8 @@ export default function FavoriteJobPostingsOfJobSeekerList() {
       .getByJobSeekerId(jobSeekerId)
       .then((result) => setFavoriteJobPostingsOfJobSeeker(result.data.data));
   });
-  const deleteFavorite = (id) => {
-   console.log(id)
-     favoriteJobPostingOfJobSeekerService.delete(id);
+  const deleteFavorite = (jobSeekerId,jobPostingId) => {
+     favoriteJobPostingOfJobSeekerService.delete(jobSeekerId,jobPostingId);
   };
   return (
     <div>
@@ -88,7 +87,7 @@ export default function FavoriteJobPostingsOfJobSeekerList() {
                 <Table.Cell>
                   <Button primary type="submit" onClick={(d) =>
                       deleteFavorite(
-                        favoriteJobPostingOfJobSeeker.id,
+                        favoriteJobPostingOfJobSeeker.jobSeeker.id,favoriteJobPostingOfJobSeeker.employerJobPosting.id,
                       )
                     }>
                     Favorilerden kaldır

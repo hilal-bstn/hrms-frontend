@@ -11,7 +11,7 @@ export default function EmployerUpdateConfirmationList() {
     employerUpdateConfirmationService
       .getByIsActive()
       .then((result) => setEmployerUpdateConfirmations(result.data.data));
-  });
+  },[]);
   //Güncelleme bekleyenler(yeni bilgiler detay sayfasında.)
     return (
         <div>

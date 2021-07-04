@@ -41,7 +41,7 @@ export default function Dashboard() {
             <Route exact path="/" component={Main} />
             <Route path="/employers" component={EmployerList} />
             <Route path="/jobseekers" component={JobSeekerList} />
-            <Route path="/jobpostings" component={EmployerJobPostingList} />
+            <Route exact path="/employerJobPostingList" component={EmployerJobPostingList} />
             <Route path="/jobposting/:id" component={EmployerJobPostingDetail} />
             <Route path="/jobseekercv/:id" component={JobSeekerCV} />
             <Route path="/employerjobpostingaddform" component={EmployerJobPostingAddForm} />

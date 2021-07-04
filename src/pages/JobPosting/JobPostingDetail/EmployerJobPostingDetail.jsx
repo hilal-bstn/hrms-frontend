@@ -6,21 +6,62 @@ import FavoriteJobPostingOfJobSeekerService from "../../../services/favoriteJobP
 
 export default function EmployerJobPostingDetail() {
   let { id } = useParams();
+  let favoriteButtonAddText = "İlanı Favorilere Ekle";
+  let favoriteButtonDeleteText = "İlanı Favorilerden Sil";
   let favoriteJobPostingOfJobSeekerService =
     new FavoriteJobPostingOfJobSeekerService();
   const [employerJobPosting, setEmployerJobPosting] = useState({});
+  const [favoriteJobPostingOfJobSeeker, setFavoriteJobPostingOfJobSeeker] =
+    useState({});
+  const [buttonText, setButtonText] = useState({});//button yazısını ayarlama favorilere ekle -sil
 
   useEffect(() => {
     let employerJobPostingService = new EmployerJobPostingService();
     employerJobPostingService
       .getById(id)
       .then((result) => setEmployerJobPosting(result.data.data));
+    favoriteJobPostingOfJobSeekerService
+      .getByJobSeekerIdAndEmployerJobPostingId(15, id)
+      .then((result) => {
+        setFavoriteJobPostingOfJobSeeker(result.data.data);
+        if (result.data.data === null) {//sayfa yüklenirken
+          setButtonText({ text: favoriteButtonAddText });
+        } else {
+          setButtonText({ text: favoriteButtonDeleteText });
+        }
+      }); 
   }, []);
+  
   const addFavorite = () => {
     let values = {};
     values.jobSeeker = { id: "15" };
     values.employerJobPosting = { id: id };
     favoriteJobPostingOfJobSeekerService.add(values);
+  };
+  const deleteFavorite = () => {
+    let values = {};
+    values.jobSeeker = { id: "15" };
+    values.employerJobPosting = { id: id };
+    favoriteJobPostingOfJobSeekerService.delete(
+      values.jobSeeker.id,
+      values.employerJobPosting.id
+    );
+  };
+  const favoriteButton = () => {
+    {//button click olduğunda 
+      favoriteJobPostingOfJobSeekerService
+        .getByJobSeekerIdAndEmployerJobPostingId(15, id)
+        .then((result) => {
+          setFavoriteJobPostingOfJobSeeker(result.data.data);//datayı setleme
+          if (result.data.data) {
+            deleteFavorite();
+            setButtonText({ text: favoriteButtonAddText }); 
+          } else {
+            addFavorite();
+            setButtonText({ text: favoriteButtonDeleteText }); 
+          }
+        });
+    }
   };
 
   return (
@@ -31,7 +72,13 @@ export default function EmployerJobPostingDetail() {
           {employerJobPosting.employer?.company.companyName}
         </Header.Content>
       </Header>
-      <Button onClick={(c) => addFavorite()}>İlanı Favorilerime ekle</Button>
+      <Button
+        onClick={() => {
+          favoriteButton();
+        }}
+      >
+        {buttonText.text}
+      </Button>
       <Table celled padded>
         <Table.Header>
           <Table.Row>
