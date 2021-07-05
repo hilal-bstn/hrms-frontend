@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { Header, Icon, Table, Button } from "semantic-ui-react";
+import { Header, Icon, Table, Button, Label, Container } from "semantic-ui-react";
 import EmployerJobPostingService from "../../../services/employerJobPostingService";
 import FavoriteJobPostingOfJobSeekerService from "../../../services/favoriteJobPostingOfJobSeekerService";
 
@@ -72,10 +72,14 @@ export default function EmployerJobPostingDetail() {
           {employerJobPosting.employer?.company.companyName}
         </Header.Content>
       </Header>
+    
+     <Label>Yayınlanma Tarihi : {employerJobPosting.releaseDate}</Label> <br/>
+      <br/>
       <Button
         onClick={() => {
           favoriteButton();
         }}
+        negative
       >
         {buttonText.text}
       </Button>
@@ -85,6 +89,8 @@ export default function EmployerJobPostingDetail() {
             <Table.HeaderCell>Şehir</Table.HeaderCell>
             <Table.HeaderCell>Pozisyon</Table.HeaderCell>
             <Table.HeaderCell>Alınacak Kişi Sayısı</Table.HeaderCell>
+            <Table.HeaderCell>Çalışma Tipi</Table.HeaderCell>
+            <Table.HeaderCell>Çalışma Zamanı</Table.HeaderCell>
             <Table.HeaderCell>Maaş Aralığı</Table.HeaderCell>
             <Table.HeaderCell>Son Başvuru Tarihi</Table.HeaderCell>
             <Table.HeaderCell>İş Tanımı</Table.HeaderCell>
@@ -98,6 +104,8 @@ export default function EmployerJobPostingDetail() {
               {employerJobPosting.jobPosition?.title}
             </Table.Cell>
             <Table.Cell>{employerJobPosting.openPositionCount}</Table.Cell>
+            <Table.Cell>{employerJobPosting.typeOfWork?.name}</Table.Cell>
+            <Table.Cell>{employerJobPosting.timeOfWork?.name}</Table.Cell>
             <Table.Cell singleLine>
               {employerJobPosting.minSalary} - {employerJobPosting.maxSalary}
             </Table.Cell>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import JobPostingConfirmationService from "../../../services/jobPostingConfirmationService";
-import { Button, Table } from "semantic-ui-react";
+import { Button, Table, Card, Icon } from "semantic-ui-react";
 import EmployerJobPostingService from "../../../services/employerJobPostingService";
 
 export default function HrmsConfirmationJobPostingList() {
@@ -20,56 +20,51 @@ export default function HrmsConfirmationJobPostingList() {
   return (
     <div>
       <b>Onay bekleyen iş ilanları</b>
-      <Table celled>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Şehir</Table.HeaderCell>
-            <Table.HeaderCell>Şirket İsmi</Table.HeaderCell>
-            <Table.HeaderCell>Pozisyon</Table.HeaderCell>
-            <Table.HeaderCell>Posizyon Açığı</Table.HeaderCell>
-            <Table.HeaderCell>Maaş Aralığı</Table.HeaderCell>
-            <Table.HeaderCell>İş Tanımı</Table.HeaderCell>
-            <Table.HeaderCell>Onay ver</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-
-        <Table.Body>
-          {JobPostingConfirmations.map(
-            (
-              jobPostingConfirmation //profil ekle (işveren)
-            ) => (
-              <Table.Row key={jobPostingConfirmation.id}>
-                <Table.Cell>
-                  {jobPostingConfirmation.employerJobPosting.city.name}
-                </Table.Cell>
-                <Table.Cell>
+      <br />
+      <br />
+      <Card.Group>
+        {JobPostingConfirmations.map(
+          (
+            jobPostingConfirmation //profil ekle (işveren)
+          ) => (
+            <Card key={jobPostingConfirmation.id} fluid>
+              <Card.Content>
+                <Icon name="suitcase" circular size="large" />
+                <Card.Header>
                   {
                     jobPostingConfirmation.employerJobPosting.employer.company
                       .companyName
                   }
-                </Table.Cell>
-                <Table.Cell>
+                </Card.Header>
+                <Card.Meta>
+                  Son Başvuru Tarihi :
+                  {
+                    jobPostingConfirmation.employerJobPosting
+                      .applicationDeadline
+                  }
+                </Card.Meta>
+                <Card.Description>
+                  <Icon name="map marker" size="midi" />
+                  {jobPostingConfirmation.employerJobPosting.city.name},
                   {jobPostingConfirmation.employerJobPosting.jobPosition.title}
-                </Table.Cell>
-                <Table.Cell>
+                  <br />
+                  {jobPostingConfirmation.employerJobPosting.timeOfWork.name},
+                  {jobPostingConfirmation.employerJobPosting.typeOfWork.name}
+                  <br />
+                  Pozisyon Açığı :{" "}
                   {jobPostingConfirmation.employerJobPosting.openPositionCount}
-                </Table.Cell>
-                <Table.Cell>
-                  {jobPostingConfirmation.employerJobPosting.minSalary === 0
-                    ? "Belirtilmemiş"
-                    : jobPostingConfirmation.employerJobPosting.minSalary}
-                  -
-                  {jobPostingConfirmation.employerJobPosting.maxSalary === 0
-                    ? "Belirtilmemiş"
-                    : jobPostingConfirmation.employerJobPosting.maxSalary}
-                </Table.Cell>
-                <Table.Cell>
+                 ,{" "} Maaş Aralığı :{" "}
+                  {jobPostingConfirmation.employerJobPosting.minSalary}-
+                  {jobPostingConfirmation.employerJobPosting.maxSalary}
+                  <br />
                   {jobPostingConfirmation.employerJobPosting.jobDescription}
-                </Table.Cell>
-
-                <Table.Cell>
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <div className="ui two buttons">
                   <Button
-                    primary
+                    basic
+                    color="green"
                     type="submit"
                     onClick={(c) =>
                       hrmsConfirmation(
@@ -80,12 +75,12 @@ export default function HrmsConfirmationJobPostingList() {
                   >
                     Onay Ver
                   </Button>
-                </Table.Cell>
-              </Table.Row>
-            )
-          )}
-        </Table.Body>
-      </Table>
+                </div>
+              </Card.Content>
+            </Card>
+          )
+        )}
+      </Card.Group>
     </div>
   );
 }
